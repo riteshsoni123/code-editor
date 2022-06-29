@@ -40,3 +40,10 @@ body {
   border-bottom-left-radius: 0.5rem;
   overflow: hidden;
 }
+
+.editor-container.collapsed {
+  flex-grow: 0;
+}
+.editor-container.collapsed .CodeMirror-scroll {
+  position: absolute;
+}
