@@ -6,6 +6,8 @@ import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
 import "codemirror/mode/css/css";
 import { Controlled as ControlledEditor } from "react-codemirror2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompressAlt, faExpand } from "@fortawesome/free-solid-svg-icons";
 
 function Editor(props) {
   const { language, displayName, value, onChange } = props;
@@ -21,7 +23,13 @@ function Editor(props) {
       <div className={`editor-container  ${open ? "" : "collapsed"} `}>
         <div className="editor-title">
           {displayName}
-          <button onClick={() => setOpen((prevOpen) => !prevOpen)}>O/C</button>
+          <button
+            type="button"
+            className="expand-collapse-btn"
+            onClick={() => setOpen((prevOpen) => !prevOpen)}
+          >
+            <FontAwesomeIcon icon={open ? faCompressAlt : faExpand} />
+          </button>
         </div>
         <ControlledEditor
           onBeforeChange={handleChange}
